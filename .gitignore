@@ -9,5 +9,5 @@
 
 /.idea/
 /out/
-/DataStructuresFinal.iml
+*.iml
 *.class
