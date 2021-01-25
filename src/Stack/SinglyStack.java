@@ -14,7 +14,7 @@ public class SinglyStack {
     /**
      * Elements in Linked List represented as nodes. Node have to has data and pointer of next node.
      */
-    class Node {
+    static class Node {
         int data;
         Node next; // pointer of next node
 
@@ -49,6 +49,7 @@ public class SinglyStack {
             return;
         }
 
+        // new node will be the last element-tail of stack
         tail.next = newNode;
         tail = newNode;
         size++;
@@ -59,7 +60,18 @@ public class SinglyStack {
      */
     public void pop() {
         // if list is null
-        if (head == null) return;
+        if (size == 0) {
+            System.out.println("Stack is empty. You cant Pop element!");
+            return;
+        }
+
+        // if list has only one element
+        if (head == tail) {
+            head = null;
+            tail = null;
+            size--;
+            return;
+        }
 
         // iterator to iterate until arrive previous of tail
         Node temp = head;
@@ -77,10 +89,10 @@ public class SinglyStack {
     /**
      * Gets the last node's data from stack
      *
-     * @return data of last node
+     * @return data of last node if stack is not empty, otherwise error message
      */
-    public int peek() {
-        return tail.data;
+    public String peek() {
+        return tail == null ? "Stack is empty. There is no last element to show!" : String.valueOf(tail.data);
     }
 
     /**
@@ -89,6 +101,7 @@ public class SinglyStack {
     public void display() {
         Node temp = head;
 
+        // until temp does not point any node, print nodes data of stack
         while (temp != null) {
             System.out.print(temp.data + "\t");
             temp = temp.next;
@@ -98,14 +111,43 @@ public class SinglyStack {
 
 }
 
+/**
+ * Test class to test out singly linked list implementation of stack
+ */
 class Test {
     public static void main(String[] args) {
         SinglyStack stack = new SinglyStack();
-        System.out.println("PUSH PROCESS");
+
+        System.out.println("----------PUSH PROCESS--------");
         stack.push(1);
         stack.push(2);
         stack.push(3);
         stack.push(4);
+        stack.push(5);
+        stack.push(6);
+        stack.push(7);
         stack.display();
+
+        System.out.println();
+        System.out.println("----------PEEK PROCESS--------");
+        System.out.println(stack.peek());
+
+        System.out.println("----------POP PROCESS-1--------");
+        popAndDisplay(stack);
+        popAndDisplay(stack);
+        popAndDisplay(stack);
+        popAndDisplay(stack);
+        popAndDisplay(stack);
+        popAndDisplay(stack);
+        popAndDisplay(stack);
+        popAndDisplay(stack);
+
+        System.out.println(stack.peek());
+    }
+
+    private static void popAndDisplay(SinglyStack stack) {
+        stack.display();
+        System.out.println();
+        stack.pop();
     }
 }
