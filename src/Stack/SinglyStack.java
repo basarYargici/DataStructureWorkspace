@@ -10,7 +10,7 @@ package Stack;
  * <p>
  * Singly Linked List implementation of a Stack
  */
-public class SinglyLinkedListImplementation {
+public class SinglyStack {
     /**
      * Elements in Linked List represented as nodes. Node have to has data and pointer of next node.
      */
@@ -83,9 +83,29 @@ public class SinglyLinkedListImplementation {
         return tail.data;
     }
 
+    /**
+     * Displays all data from stack
+     */
     public void display() {
+        Node temp = head;
 
+        while (temp != null) {
+            System.out.print(temp.data + "\t");
+            temp = temp.next;
+        }
     }
 
 
+}
+
+class Test {
+    public static void main(String[] args) {
+        SinglyStack stack = new SinglyStack();
+        System.out.println("PUSH PROCESS");
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.display();
+    }
 }
