@@ -22,12 +22,6 @@ public class DoublyCircularQueue {
         Node prev; // pointer of previous node
 
         /**
-         * Default constructor
-         */
-        public Node() {
-        }
-
-        /**
          * Constructor to instantiate new instances with data.
          *
          * @param data is the data of node
@@ -53,7 +47,7 @@ public class DoublyCircularQueue {
         temp = tail; // keeping last node of queue
 
         // if list is empty head and tail should point the same node
-        // also this is the part of declaration of circularity which previous of head is tail and next of tail is head
+        // also this is the part of initialization of circularity which previous of head is tail and next of tail is head
         if (head == null) {
             head = newNode;
             tail = newNode;
@@ -141,6 +135,15 @@ public class DoublyCircularQueue {
     public int getSize() {
         return size;
     }
+
+    /**
+     * Checks if the queue is empty or not
+     *
+     * @return true if list is empty, otherwise false
+     */
+    public boolean isEmpty() {
+        return (size == 0);
+    }
 }
 
 /**
@@ -154,6 +157,8 @@ class Test {
      */
     public static void main(String[] args) {
         DoublyCircularQueue circularQueue = new DoublyCircularQueue();
+        System.out.println("Is queue empty? " + circularQueue.isEmpty());
+
         System.out.println("Add function and display function:");
         circularQueue.add(1);
         circularQueue.add(2);
