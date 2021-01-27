@@ -1,5 +1,5 @@
 package Stack;
-
+// TODO add Empty, Search
 /**
  * Project: DataStructureFinal
  * Package: Stack
@@ -12,7 +12,7 @@ package Stack;
  */
 public class SinglyStack {
     /**
-     * Elements in Linked List represented as nodes. Node have to has data and pointer of next node.
+     * Elements in Linked List represented as nodes. Node has to have data and pointer of next node.
      */
     static class Node {
         int data;
