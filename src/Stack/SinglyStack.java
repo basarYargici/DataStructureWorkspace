@@ -1,5 +1,5 @@
 package Stack;
-// TODO add Empty, Search
+
 /**
  * Project: DataStructureFinal
  * Package: Stack
@@ -108,15 +108,40 @@ public class SinglyStack {
         }
     }
 
+    /**
+     * Getter function to get size
+     *
+     * @return size of queue
+     */
+    public int getSize() {
+        return size;
+    }
+
+    /**
+     * Checks if the stack is empty or not
+     *
+     * @return true if list is empty, otherwise false
+     */
+    public boolean isEmpty() {
+        return (size == 0);
+    }
+
 
 }
 
 /**
- * Test class to test out singly linked list implementation of stack
+ * Test class to test our SinglyStack class which is singly linked list implementation of stack
  */
 class Test {
+    /**
+     * Main function where we will test SinglyStack class
+     *
+     * @param args is not used
+     */
     public static void main(String[] args) {
         SinglyStack stack = new SinglyStack();
+
+        System.out.println("Is stack empty? " + stack.isEmpty());
 
         System.out.println("----------PUSH PROCESS--------");
         stack.push(1);
@@ -133,18 +158,19 @@ class Test {
         System.out.println(stack.peek());
 
         System.out.println("----------POP PROCESS-1--------");
-        popAndDisplay(stack);
-        popAndDisplay(stack);
-        popAndDisplay(stack);
-        popAndDisplay(stack);
-        popAndDisplay(stack);
-        popAndDisplay(stack);
-        popAndDisplay(stack);
-        popAndDisplay(stack);
+        int stackSize = stack.getSize();
+        for (int i = 0; i <= stackSize; i++) {
+            popAndDisplay(stack);
+        }
 
         System.out.println(stack.peek());
     }
 
+    /**
+     * Helper function to pop element and display the stack
+     *
+     * @param stack is the wanted SinglyStack to display and pop
+     */
     private static void popAndDisplay(SinglyStack stack) {
         stack.display();
         System.out.println();
