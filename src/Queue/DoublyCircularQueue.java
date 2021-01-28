@@ -166,7 +166,6 @@ class Test {
         circularQueue.display();
         System.out.println("(getSize function will display the size of queue) \t\tsize: " + circularQueue.getSize());
 
-
         System.out.println("\n(peek function will display head without removing) \t\tpeek: " + circularQueue.peek().data);
 
         System.out.println("\n(pool function will display head and later remove it) \tpool: " + circularQueue.poll().data);
@@ -184,11 +183,9 @@ class Test {
         System.out.println("New queue:");
         circularQueue.display();
 
-
         System.out.println("\nRemove and pool difference: (now we have empty queue, remove will throw exception)");
         System.out.println("(pool function will display null because queue is ) \t\t\tpool: " + circularQueue.poll());
         System.out.print("(remove function will throw exception because queue is empty) \tremove: ");
         System.out.println(circularQueue.remove());
-
     }
 }
